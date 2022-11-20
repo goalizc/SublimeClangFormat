@@ -21,6 +21,7 @@ all_settings  = [
     "AllowAllParametersOfDeclarationOnNextLine",
     "AllowShortBlocksOnASingleLine", "AllowShortCaseLabelsOnASingleLine",
     "AllowShortFunctionsOnASingleLine", "AllowShortIfStatementsOnASingleLine",
+    "AllowShortLambdasOnASingleLine",
     "AllowShortLoopsOnASingleLine", "AlwaysBreakAfterDefinitionReturnType",
     "AlwaysBreakAfterReturnType", "AlwaysBreakBeforeMultilineStrings",
     "AlwaysBreakTemplateDeclarations", "BinPackArguments", "BinPackParameters",
