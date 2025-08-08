@@ -369,20 +369,9 @@ class ClangFormatCommand(sublime_plugin.TextCommand):
             regions = self.view.sel()
 
         for region in regions:
-            region_offset = region.begin()
-            region_length = region.size()
-
-            view = sublime.active_window().active_view()
-
-            # If the command is run at the end of the line,
-            # Run the command on the whole line.
-            if view.classify(region_offset) & sublime.CLASS_LINE_END > 0:
-                region        = view.line(region_offset)
-                region_offset = region.begin()
-                region_lenth  = region.size()
-
-            command.extend(['-offset', str(region_offset),
-                            '-length', str(region_length)])
+            start_row, _ = self.view.rowcol(region.begin())
+            end_row, _ = self.view.rowcol(region.end())
+            command.append('--lines=%d:%d' % (start_row + 1, end_row + 1))
 
         # We only set the offset once, otherwise CF complains.
         command.extend(['-assume-filename', str(self.view.file_name())] )
